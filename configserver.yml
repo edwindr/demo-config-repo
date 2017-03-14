@@ -1,6 +1,18 @@
+server:
+  port: 8889
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+     
 spring:
-  profiles: cloud
-service:
-  definition:
-    metadata:
-      uri: http://${spring.application.name}.${application.domain:cfapps.io}
+  cloud:
+    config:
+      server:
+        git:
+         uri: https://github.com/edwindr/demo-config-repo.git
+         basedir: /e/SoftManagement/GIT/config-repo
+security:
+  user:
+    password: '{cipher}36ee1e02312306be58274b2aa3f30fe1009e299acc83cadd6f1437e9fd72ccab'
